@@ -277,12 +277,12 @@ fi
 * Wed Dec 18 2019 Dionysis Kladis <dkstiler@gmail.com> 0.59.2-1.3.20.kng
 - Recompile it for kloxong in copr chroot enviroment
 
-* Fri Jun 17 2015 Mustafa Ramadhan <mustafa@bigraf.com> 0.59.2-1.3.20.mr
+* Wed Jun 17 2015 Mustafa Ramadhan <mustafa@bigraf.com> 0.59.2-1.3.20.mr
 - Set to use pop3 (beside pop3-ssl, imap4 and imap4-ssl) instead from qmail-pop3d-toaster
 - set no obsolete for dovecot-toaster
 - disable requires to maildrop-toaster (may trouble with courier-imap-toaster)
 
-* Mon May 30 2015 Mustafa Ramadhan <mustafa@bigraf.com> 0.59.2-1.3.19.mr
+* Sat May 30 2015 Mustafa Ramadhan <mustafa@bigraf.com> 0.59.2-1.3.19.mr
 - set STARTTLS for imapd-ssl and pop3d-ssl
 
 * Sat Dec 20 2014 Mustafa Ramadhan <mustafa@bigraf.com> 0.59.2-1.3.18.mr
@@ -326,7 +326,7 @@ fi
 - Added Suse 11.1 support
 * Mon Feb 09 2009 Jake Vickers <jake@qmailtoaster.com> 3.0.4-1.3.8
 - Added Fedora 9 and 10 support
-* Sat Apr 17 2007 Nick Hemmesch <nick@ndhsoft.com> 3.0.4-1.3.7
+* Tue Apr 17 2007 Nick Hemmesch <nick@ndhsoft.com> 3.0.4-1.3.7
 - Add CentOS 5 i386 support
 - Add CentOS 5 x86_64 support
 * Mon Jan 08 2007 Erik A. Espinoza <espinoza@kabewm.com> 4.1.2-1.3.6
@@ -339,7 +339,7 @@ fi
 - Added Fedora Core 6 support
 * Thu Jun 08 2006 Erik A. Espinoza <espinoza@forcenetworks.com> 4.1.1-1.3.2
 - Upgraded to courier-imap 4.1.1
-* Fri Jun 05 2006 Erik A. Espinoza <espinoza@forcenetworks.com> 4.1.0-1.3.1
+* Mon Jun 05 2006 Erik A. Espinoza <espinoza@forcenetworks.com> 4.1.0-1.3.1
 - Upgraded to courier-imap 4.1.0
 - Requires courier-authlib
 - Added SuSE 10.1 support
@@ -356,7 +356,7 @@ fi
 - Add Fedora Core 4 support
 * Fri Jun 03 2005 Torbjorn Turpeinen <tobbe@nyvalls.se> 3.0.8-1.2.5
 - Gnu/Linux Mandrake 10.0,10.1,10.2 support
-* Thu May 25 2005 Nick Hemmesch <nick@ndhsoft.com> 3.0.8-1.2.4
+* Wed May 25 2005 Nick Hemmesch <nick@ndhsoft.com> 3.0.8-1.2.4
 - Update to courier-imap-3.0.8
 * Sun Feb 27 2005 Nick Hemmesch <nick@ndhsoft.com> 3.0.4-1.2.3
 - Add Fedora Core 3 support
@@ -399,7 +399,7 @@ fi
 - Clean-ups
 * Mon Mar 31 2003 Miguel Beccari <miguel.beccari@clikka.com> 1.7.0-1.0.2
 - Conectiva Linux 7.0 support
-* Sun Feb 15 2003 Miguel Beccari <miguel.beccari@clikka.com> 1.7.0-1.0.1
+* Sat Feb 15 2003 Miguel Beccari <miguel.beccari@clikka.com> 1.7.0-1.0.1
 - Last version 1.7.0
 * Sat Feb 15 2003 Nick Hemmesch <nick@ndhsoft.com> 1.6.2-1.0.4
 - Support for Red Hat 8.0
@@ -438,21 +438,21 @@ fi
 - New version: 0.7 toaster.
 - Better upgrade capabilities: now uninstallation is clean (no died files)
 - Better macros to detect Mandrake Release
-* Thu Aug 13 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.6.1.5.2-1
+* Tue Aug 13 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.6.1.5.2-1
 - New version: 0.6 toaster.
 - Soft clean-ups for upgrade cleanly.
 * Mon Aug 12 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.5.1.5.2-1
 - Doc package is standalone (someone does not ask for man pages)
 - Checks for gcc-3.2 (default compiler from now)
 - New version: 0.5 toaster.
-* Tue Aug 08 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.4.1.5.2-1
+* Thu Aug 08 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.4.1.5.2-1
 - Rebuild agains 0.4 toaster
 - Better upgrade features
 * Wed Aug 07 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.3.1.5.2-1
 - New version (1.5.2)
-* Thu Aug 06 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.3.1.5.1-3
+* Tue Aug 06 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.3.1.5.1-3
 - Better dependencies for RedHat
-* Thu Jul 30 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.3.1.5.1-2
+* Tue Jul 30 2002 Miguel Beccari <miguel.beccari@clikka.com> 0.3.1.5.1-2
 - Now packages have got 'no sex': you can rebuild them with command line
   flags for specifics targets that are: RedHat, Trustix, and of course
   Mandrake (that is default)
