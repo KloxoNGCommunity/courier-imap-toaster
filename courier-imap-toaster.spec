@@ -5,9 +5,13 @@
 
 %define		release %{bversion}.kng.%{rpmrelease}
 BuildRequires:	gamin-devel, openssl-devel >= 0.9.8, expect >= 5.43.0, gdbm-devel >= 1.8.0
-BuildRequires:	gcc-c++, sed, perl
+BuildRequires:	sed, perl
+BuildRequires:  make
+BuildRequires:	gcc
+BuildRequires: 	gcc-c++
 Requires:		openssl >= 0.9.8, chkconfig, fileutils
 Requires:		textutils, sh-utils, sed
+
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
 %define		ldflags %{optflags} -L/usr/include
 
