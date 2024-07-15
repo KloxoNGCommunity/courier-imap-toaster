@@ -9,8 +9,8 @@ BuildRequires:	sed, perl
 BuildRequires:  make
 BuildRequires:	gcc
 BuildRequires: 	gcc-c++
-Requires:		openssl >= 0.9.8, chkconfig, fileutils
-Requires:		textutils, sh-utils, sed
+Requires:		openssl >= 0.9.8, chkconfig
+Requires:		coreutils, sed
 
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
 %define		ldflags %{optflags} -L/usr/include
@@ -53,7 +53,7 @@ BuildRoot:		%{_tmppath}/%{real_name}-%{version}-toaster-buildroot
 Requires:		qmail-toaster >= 1.03
 Requires:		ucspi-tcp-toaster >= 0.88, daemontools-toaster >= 0.76
 Requires:		courier-authlib-toaster
-Requires:		fileutils textutils sh-utils sed
+Requires:		coreutils sed
 
 BuildRequires:	textutils openssl-devel fileutils perl
 BuildRequires:	courier-authlib-toaster
