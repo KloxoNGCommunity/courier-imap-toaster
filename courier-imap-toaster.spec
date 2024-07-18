@@ -1,7 +1,7 @@
 %define 	real_name courier-imap
 %define 	pversion 4.1.2
 %define 	bversion 1.3
-%define 	rpmrelease 20.kng%{?dist}
+%define 	rpmrelease 21.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
 BuildRequires:	gamin-devel, openssl-devel >= 0.9.8, expect >= 5.43.0, gdbm-devel >= 1.8.0
@@ -55,7 +55,7 @@ Requires:		ucspi-tcp-toaster >= 0.88, daemontools-toaster >= 0.76
 Requires:		courier-authlib-toaster
 Requires:		coreutils sed
 
-BuildRequires:	textutils openssl-devel fileutils perl
+BuildRequires:	coreutils openssl-devel perl
 BuildRequires:	courier-authlib-toaster
 
 Conflicts:	uw-imap, courier-imap, dovecot
