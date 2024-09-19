@@ -1,12 +1,12 @@
 %define 	real_name courier-imap
 %define 	pversion 4.1.2
 %define 	bversion 1.3
-%define 	rpmrelease 20.kng%{?dist}
+%define 	rpmrelease 21.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
-BuildRequires:	gamin-devel, openssl-devel >= 0.9.8, expect >= 5.43.0, gdbm-devel >= 1.8.0
+BuildRequires:	gamin-devel, openssl11-devel >= 1.1.1, expect >= 5.43.0, gdbm-devel >= 1.8.0
 BuildRequires:	gcc-c++, sed, perl
-Requires:		openssl >= 0.9.8, chkconfig, fileutils
+Requires:		openssl11 >= 1.1.1, chkconfig, fileutils
 Requires:		textutils, sh-utils, sed
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
 %define		ldflags %{optflags} -L/usr/include
