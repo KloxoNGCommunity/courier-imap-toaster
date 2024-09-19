@@ -105,6 +105,7 @@ export COURIERAUTHCONFIG=%{_bindir}/courierauthconfig
     --datadir=%{_datadir}/courier \
     --sysconfdir=%{_sysconfdir}/courier \
     --enable-unicode \
+	--with-notice=unicode \
     --with-redhat
 
 # Make
