@@ -1,13 +1,20 @@
 %define 	real_name courier-imap
-%define 	pversion 4.1.2
+%define 	pversion 5.2.9
 %define 	bversion 1.3
-%define 	rpmrelease 21.kng%{?dist}
+%define 	rpmrelease 1.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
-BuildRequires:	gamin-devel, openssl-devel >= 0.9.8, expect >= 5.43.0, gdbm-devel >= 1.8.0
+BuildRequires:	gamin-devel, expect >= 5.43.0, gdbm-devel >= 1.8.0
+BuildRequires:      openssl
+BuildRequires:      openssl-devel
 BuildRequires:	sed, perl
 BuildRequires:  make
 BuildRequires:	gcc
+BuildRequires: libidn2-devel
+BuildRequires: courier-unicode-devel
+BuildRequires: %{__make}
+BuildRequires: coreutils perl
+BuildRequires: courier-authlib-devel
 BuildRequires: 	gcc-c++
 Requires:		openssl >= 0.9.8, chkconfig
 Requires:		coreutils, sed
