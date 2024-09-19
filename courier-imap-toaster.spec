@@ -52,7 +52,7 @@ Requires:		courier-authlib-toaster
 Requires:		fileutils textutils sh-utils sed
 
 BuildRequires:	textutils openssl-devel fileutils perl
-BuildRequires:	courier-authlib-toaster
+BuildRequires:	courier-authlib-toaster libidn2
 
 Conflicts:	uw-imap, courier-imap, dovecot
 Obsoletes:	courier-imap-toaster-doc, qmail-pop3d-toaster
