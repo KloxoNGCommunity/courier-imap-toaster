@@ -1,7 +1,7 @@
 %define 	real_name courier-imap
-%define 	pversion 4.1.2
+%define 	pversion 5.2.9
 %define 	bversion 1.3
-%define 	rpmrelease 21.kng%{?dist}
+%define 	rpmrelease 2.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
 BuildRequires:	gamin-devel, openssl11-devel >= 1.1.1, expect >= 5.43.0, gdbm-devel >= 1.8.0
