@@ -1,7 +1,7 @@
 %define 	real_name courier-imap
 %define 	pversion 5.2.9
 %define 	bversion 1.3
-%define 	rpmrelease 2.kng%{?dist}
+%define 	rpmrelease 3.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
 BuildRequires:	gamin-devel, openssl11-devel >= 1.1.1, expect >= 5.43.0, gdbm-devel >= 1.8.0
@@ -51,8 +51,17 @@ Requires:		ucspi-tcp-toaster >= 0.88, daemontools-toaster >= 0.76
 Requires:		courier-authlib-toaster
 Requires:		fileutils textutils sh-utils sed
 
+BuildRequires: gcc-c++
+BuildRequires: procps-ng
+BuildRequires: gdbm-devel
+BuildRequires: coreutils perl
 BuildRequires:	textutils openssl-devel fileutils perl
-BuildRequires:	courier-authlib-toaster libidn2
+BuildRequires:	courier-authlib-toaster
+BuildRequires: libidn2-devel
+BuildRequires: courier-unicode-devel
+BuildRequires: %{__make}
+BuildRequires:      openssl
+BuildRequires:      openssl-devel
 
 Conflicts:	uw-imap, courier-imap, dovecot
 Obsoletes:	courier-imap-toaster-doc, qmail-pop3d-toaster
@@ -62,55 +71,56 @@ Provides:	imap, imap-server
 Packager:	Jake Vickers <jake@qmailtoaster.com>
 
 
-#-----------------------------------------------------------------------------
+
 %description
-#-----------------------------------------------------------------------------
 Courier-IMAP is an IMAP server for Maildir mailboxes.  This package contains
 the  standalone  version of the  IMAP server  that's included in the Courier
 mail server package.  This  package  is  a  standalone  version for use with
 qmail-toaster mail servers.   Do  not  install this package if you intend to
 install the full Courier mail server.
 
-
-#-----------------------------------------------------------------------------
 %prep
-#-----------------------------------------------------------------------------
 
 %define name courier-imap
 %setup -q -n courier-imap-%{pversion}
 
+%if %(test '%{xflags}' = '%%{xflags}' && echo 1 || echo 0)
+%define xflags %{nil}
+%endif
 
-# Cleanup for the new gcc
-#-----------------------------------------------------------------------------
-
-echo "gcc" > %{_tmppath}/%{real_name}-%{pversion}-gcc
-
-
-#-----------------------------------------------------------------------------
 %build
-#-----------------------------------------------------------------------------
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
-mkdir -p %{buildroot}
+
+%configure %{?notice_option} \
+		--with-notice=unicode \
+		--datadir=%{_datadir}/courier \
+		--sysconfdir=%{_sysconfdir}/courier \
+		-C %{?xflags: %{xflags}}
+
+%{__make} %{_smp_mflags}
+%{__make} check
+
+#[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
+#mkdir -p %{buildroot}
 
 
 # Set compiler includes
 #-----------------------------------------------------------------------------
-export CC="`cat %{_tmppath}/%{real_name}-%{pversion}-gcc` %{ccflags}"
-export CPPFLAGS=-I%{_includedir}
-export COURIERAUTHCONFIG=%{_bindir}/courierauthconfig
-[ -f %{_tmppath}/%{real_name}-%{pversion}-gcc ] && rm -f %{_tmppath}/%{real_name}-%{pversion}-gcc
+#export CC="`cat %{_tmppath}/%{real_name}-%{pversion}-gcc` %{ccflags}"
+#export CPPFLAGS=-I%{_includedir}
+#export COURIERAUTHCONFIG=%{_bindir}/courierauthconfig
+#[ -f %{_tmppath}/%{real_name}-%{pversion}-gcc ] && rm -f %{_tmppath}/%{real_name}-%{pversion}-gcc
 
-%configure \
-    --disable-root-check \
-    --datadir=%{_datadir}/courier \
-    --sysconfdir=%{_sysconfdir}/courier \
-    --enable-unicode \
-	--with-notice=unicode \
-    --with-redhat
+#%%configure \
+#    --disable-root-check \
+#    --datadir=%%{_datadir}/courier \
+#    --sysconfdir=%%{_sysconfdir}/courier \
+#    --enable-unicode \
+#	--with-notice=unicode \
+#    --with-redhat
 
 # Make
 #-----------------------------------------------------------------------------
-make
+#make
 
 
 #-----------------------------------------------------------------------------
@@ -266,8 +276,8 @@ fi
 
 # docs
 #-----------------------------------------------------------------------------
-%doc NEWS AUTHORS COPYING imap/BUGS README *.html imap/*.html maildir/*.html
-%doc maildir/*.html maildir/*.txt
+%doc NEWS AUTHORS COPYING libs/imap/BUGS README *.html libs/imap/*.html libs/maildir/*.html
+%doc libs/maildir/*.html libs/maildir/*.txt
 %attr(0644,root,root) %{_mandir}/man1/*
 %attr(0644,root,root) %{_mandir}/man8/*
 
