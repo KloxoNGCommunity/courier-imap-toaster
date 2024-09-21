@@ -10,11 +10,11 @@ Requires:		chkconfig, fileutils
 Requires:		textutils, sh-utils, sed
 
 %if %{?rhel}0 < 80
-BuildRequires:  openssl11-devel >= 1.1.1
+BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils
 Requires:		openssl11 >= 1.1.1
 %else
-BuildRequires:  openssl-devel
-Requires:		openssl
+BuildRequires:  openssl-devel coreutils
+Requires:		openssl coreutils
 %endif
 
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
@@ -63,8 +63,8 @@ Requires:		fileutils textutils sh-utils sed
 BuildRequires: gcc-c++
 BuildRequires: procps-ng
 BuildRequires: gdbm-devel
-BuildRequires: coreutils perl
-BuildRequires:	textutils openssl-devel fileutils perl
+BuildRequires:  perl
+BuildRequires:	openssl-devel perl
 BuildRequires:	courier-authlib-toaster
 BuildRequires: libidn2-devel
 BuildRequires: courier-unicode-devel
