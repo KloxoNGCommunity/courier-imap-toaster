@@ -4,10 +4,19 @@
 %define 	rpmrelease 3.kng%{?dist}
 
 %define		release %{bversion}.kng.%{rpmrelease}
-BuildRequires:	gamin-devel, openssl11-devel >= 1.1.1, expect >= 5.43.0, gdbm-devel >= 1.8.0
+BuildRequires:	gamin-devel,  expect >= 5.43.0, gdbm-devel >= 1.8.0
 BuildRequires:	gcc-c++, sed, perl
-Requires:		openssl11 >= 1.1.1, chkconfig, fileutils
+Requires:		chkconfig, fileutils
 Requires:		textutils, sh-utils, sed
+
+%if %{?rhel}0 < 80
+BuildRequires:  openssl11-devel >= 1.1.1
+Requires:		openssl11 >= 1.1.1
+%else
+BuildRequires:  openssl-devel
+Requires:		openssl
+%endif
+
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
 %define		ldflags %{optflags} -L/usr/include
 
