@@ -1,22 +1,21 @@
 %define 	real_name courier-imap
-%define 	pversion 5.2.9
+%define 	pversion 5.2.10
 %define 	bversion 1.3
+%define 	rpmrelease 1.kng%{?dist}
 
-%define 	rpmrelease 3.kng%{?dist}
-%define		release %{bversion}%{rpmrelease}
+%define		release %{bversion}.%{rpmrelease}
 BuildRequires:	gamin-devel,  expect >= 5.43.0, gdbm-devel >= 1.8.0
 BuildRequires:	gcc-c++, sed, perl
-Requires:		chkconfig, fileutils
-Requires:		textutils, sh-utils, sed
+Requires:		chkconfig
+Requires:		sh-utils, sed
 
 %if %{?rhel}0 < 80
 BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils
-Requires:		openssl11 >= 1.1.1
+Requires:		openssl11 >= 1.1.1 fileutils textutils
 %else
 BuildRequires:  openssl-devel coreutils glibc-langpack-en
 Requires:		openssl coreutils
 %endif
-
 
 %define		ccflags %{optflags} -DHAVE_VLOGAUTH
 %define		ldflags %{optflags} -L/usr/include
@@ -59,14 +58,11 @@ BuildRoot:		%{_tmppath}/%{real_name}-%{version}-toaster-buildroot
 Requires:		qmail-toaster >= 1.03
 Requires:		ucspi-tcp-toaster >= 0.88, daemontools-toaster >= 0.76
 Requires:		courier-authlib-toaster
-Requires:		coreutils sed
-
 
 BuildRequires: gcc-c++
 BuildRequires: procps-ng
 BuildRequires: gdbm-devel
 BuildRequires:  perl
-BuildRequires:	openssl-devel perl
 BuildRequires:	courier-authlib-toaster
 BuildRequires: libidn2-devel
 BuildRequires: courier-unicode-devel
@@ -296,6 +292,9 @@ fi
 #-----------------------------------------------------------------------------
 %changelog
 #-----------------------------------------------------------------------------
+* Sun Sep 22 2024 John Pierce <john@luckytanuki.com>
+- Upgrage to 5.2.10
+
 * Wed Dec 18 2019 Dionysis Kladis <dkstiler@gmail.com> 0.59.2-1.3.20.kng
 - Recompile it for kloxong in copr chroot enviroment
 
