@@ -13,7 +13,7 @@ Requires:		textutils, sh-utils, sed
 BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils
 Requires:		openssl11 >= 1.1.1
 %else
-BuildRequires:  openssl-devel coreutils
+BuildRequires:  openssl-devel coreutils glibc-langpack-en
 Requires:		openssl coreutils
 %endif
 
