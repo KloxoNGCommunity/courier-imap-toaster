@@ -57,7 +57,7 @@ BuildRoot:		%{_tmppath}/%{real_name}-%{version}-toaster-buildroot
 
 Requires:		qmail-toaster >= 1.03
 Requires:		ucspi-tcp-toaster >= 0.88, daemontools-toaster >= 0.76
-Requires:		courier-authlib-toaster
+Requires:		courier-authlib-toaster courier-unicode
 
 BuildRequires: gcc-c++
 BuildRequires: procps-ng
