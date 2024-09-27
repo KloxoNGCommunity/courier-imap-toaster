@@ -4,13 +4,13 @@
 %define 	rpmrelease 1.kng%{?dist}
 
 %define		release %{bversion}.%{rpmrelease}
-BuildRequires:	gamin-devel,  expect >= 5.43.0, gdbm-devel >= 1.8.0
+BuildRequires:	 expect >= 5.43.0, gdbm-devel >= 1.8.0
 BuildRequires:	gcc-c++, sed, perl
 Requires:		chkconfig
 Requires:		sh-utils, sed
 
 %if %{?rhel}0 < 80
-BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils
+BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils gamin-devel
 Requires:		openssl11 >= 1.1.1 fileutils textutils
 %else
 BuildRequires:  openssl-devel coreutils glibc-langpack-en
