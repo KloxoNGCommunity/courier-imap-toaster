@@ -1,17 +1,17 @@
 %define 	real_name courier-imap
 %define 	pversion 5.2.10
 %define 	bversion 1.3
-%define 	rpmrelease 1.kng%{?dist}
+%define 	rpmrelease 2.kng%{?dist}
 
 %define		release %{bversion}.%{rpmrelease}
 BuildRequires:	 expect >= 5.43.0, gdbm-devel >= 1.8.0
 BuildRequires:	gcc-c++, sed, perl
 Requires:		chkconfig
-Requires:		sh-utils, sed
+Requires:		sed
 
 %if %{?rhel}0 < 80
 BuildRequires:  openssl11-devel >= 1.1.1 textutils fileutils gamin-devel
-Requires:		openssl11 >= 1.1.1 fileutils textutils
+Requires:		openssl11 >= 1.1.1 fileutils textutils sh-utils
 %else
 BuildRequires:  openssl-devel coreutils glibc-langpack-en
 Requires:		openssl coreutils
